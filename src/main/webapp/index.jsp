@@ -8,14 +8,26 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Yuri Glecios</title>
+    <title>Glecios-jsp</title>
 </head>
 <body>
 
-<form action="receber-nome.jsp">
-    <input name="nome">
-    <input name="idade">
-    <input type="submit" value="enviar">
+<form action="ServletLogin" method="post">
+    <h1>Login</h1>
+
+    <table>
+        <tr>
+            <td><label>Usuário</label></td>
+            <td><input name="Login" type="text"></td>
+        </tr>
+        <tr>
+            <td><label>Senha</label></td>
+            <td><input name="Senha" type="password"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Entrar"></td>
+        </tr>
+    </table>
 </form>
 
 </body>
