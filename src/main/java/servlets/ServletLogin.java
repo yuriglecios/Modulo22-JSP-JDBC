@@ -1,5 +1,6 @@
 package servlets;
 
+import dao.LoginDAORepository;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -12,6 +13,9 @@ import java.io.IOException;
 
 @WebServlet(urlPatterns = {"/principal/ServletLogin", "/ServletLogin"})
 public class ServletLogin extends HttpServlet {
+
+    private LoginDAORepository loginDAORepository = new LoginDAORepository();
+
 
     public ServletLogin(){
 
@@ -28,38 +32,43 @@ public class ServletLogin extends HttpServlet {
         String senha = req.getParameter("Senha");
         String url = req.getParameter("url");
 
-        if (login != null && !login.isEmpty() && senha != null && !senha.isEmpty()){
+        try {
 
-            ModelLogin usuarioLogin = new ModelLogin();
-            usuarioLogin.setLogin(login);
-            usuarioLogin.setSenha(senha);
+            if (login != null && !login.isEmpty() && senha != null && !senha.isEmpty()){
 
-            if (login.equalsIgnoreCase("admin") && senha.equalsIgnoreCase("admin")){
+                ModelLogin usuarioLogin = new ModelLogin();
+                usuarioLogin.setLogin(login);
+                usuarioLogin.setSenha(senha);
 
-                req.getSession().setAttribute("usuario", usuarioLogin.getLogin());
+                if (loginDAORepository.validaLogin(usuarioLogin)){
 
-                if (url == null || url.equals("null")){
+                    req.getSession().setAttribute("usuario", usuarioLogin.getLogin());
 
-                    url = "principal/principal.jsp";
+                    if (url == null || url.equals("null")){
+
+                        url = "principal/principal.jsp";
+
+                    }
+
+                    RequestDispatcher redirecionar = req.getRequestDispatcher(url);
+                    redirecionar.forward(req,resp);
+
+                } else {
+
+                    RequestDispatcher redirecionar = req.getRequestDispatcher("/index.jsp");
+                    req.setAttribute("mensagem","Usuário ou senha errado!");
+                    redirecionar.forward(req,resp);
 
                 }
-
-                RequestDispatcher redirecionar = req.getRequestDispatcher(url);
-                redirecionar.forward(req,resp);
-
             } else {
 
-                RequestDispatcher redirecionar = req.getRequestDispatcher("/index.jsp");
+                RequestDispatcher redirecionar = req.getRequestDispatcher("index.jsp");
                 req.setAttribute("mensagem","Faça login primeiramente");
                 redirecionar.forward(req,resp);
 
             }
-        } else {
-
-            RequestDispatcher redirecionar = req.getRequestDispatcher("index.jsp");
-            req.setAttribute("mensagem","Usuário ou senha errado!");
-            redirecionar.forward(req,resp);
-
+        } catch (Exception e){
+            e.printStackTrace();
         }
 
     }
