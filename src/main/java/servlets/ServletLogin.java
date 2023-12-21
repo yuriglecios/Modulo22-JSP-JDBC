@@ -14,6 +14,7 @@ import java.io.IOException;
 @WebServlet(urlPatterns = {"/principal/ServletLogin", "/ServletLogin"})
 public class ServletLogin extends HttpServlet {
 
+    private static final long serialVersionUID = -2009023936539307405L;
     private LoginDAORepository loginDAORepository = new LoginDAORepository();
 
 
