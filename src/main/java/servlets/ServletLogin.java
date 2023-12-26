@@ -24,7 +24,21 @@ public class ServletLogin extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doPost(req,resp);
+        String acao = req.getParameter("acao");
+
+        if (acao != null && !acao.isEmpty() && acao.equalsIgnoreCase("Logout")){
+
+            req.getSession().invalidate();
+            RequestDispatcher redirecionar = req.getRequestDispatcher("index.jsp");
+            redirecionar.forward(req,resp);
+
+        } else {
+
+            doPost(req,resp);
+
+        }
+
+
     }
 
     @Override
@@ -56,7 +70,7 @@ public class ServletLogin extends HttpServlet {
 
                 } else {
 
-                    RequestDispatcher redirecionar = req.getRequestDispatcher("/index.jsp");
+                    RequestDispatcher redirecionar = req.getRequestDispatcher("index.jsp");
                     req.setAttribute("mensagem","Usuário ou senha errado!");
                     redirecionar.forward(req,resp);
 
