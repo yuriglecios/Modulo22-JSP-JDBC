@@ -59,8 +59,8 @@
                     </a>
                     <ul class="show-notification">
                         <li>
-                            <h6>Notifications</h6>
-                            <label class="label label-danger">New</label>
+                            <h6>Notificações</h6>
+                            <label class="label label-danger">Mensagens</label>
                         </li>
                         <li class="waves-effect waves-light">
                             <div class="media">
@@ -97,33 +97,33 @@
                 <li class="user-profile header-notification">
                     <a href="#!" class="waves-effect waves-light">
                         <img src="assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
-                        <span>John Doe</span>
+                        <span> <%= session.getAttribute("usuario") %> </span>
                         <i class="ti-angle-down"></i>
                     </a>
                     <ul class="show-notification profile-notification">
                         <li class="waves-effect waves-light">
                             <a href="#!">
-                                <i class="ti-settings"></i> Settings
+                                <i class="ti-settings"></i> Configurações
                             </a>
                         </li>
                         <li class="waves-effect waves-light">
                             <a href="user-profile.html">
-                                <i class="ti-user"></i> Profile
+                                <i class="ti-user"></i> Perfil
                             </a>
                         </li>
                         <li class="waves-effect waves-light">
                             <a href="email-inbox.html">
-                                <i class="ti-email"></i> My Messages
+                                <i class="ti-email"></i> Minhas mensagens
                             </a>
                         </li>
                         <li class="waves-effect waves-light">
                             <a href="auth-lock-screen.html">
-                                <i class="ti-lock"></i> Lock Screen
+                                <i class="ti-lock"></i> Tela de bloqueio
                             </a>
                         </li>
                         <li class="waves-effect waves-light">
                             <a href="ServletLogin?acao=Logout">
-                                <i class="ti-layout-sidebar-left"></i> Logout
+                                <i class="ti-layout-sidebar-left"></i> Sair
                             </a>
                         </li>
                     </ul>
