@@ -77,6 +77,7 @@
                                                                     </div>
                                                                     <button class="btn btn-success waves-effect waves-light">Salvar</button>
                                                                 </form>
+                                                                <h1><% out.print(request.getAttribute("msg")); %></h1>
                                                             </div>
                                                         </div>
                                                     </div>

@@ -15,7 +15,7 @@ import java.io.IOException;
 public class ServletLogin extends HttpServlet {
 
     private static final long serialVersionUID = -2009023936539307405L;
-    private LoginDAORepository loginDAORepository = new LoginDAORepository();
+    private final LoginDAORepository loginDAORepository = new LoginDAORepository();
 
 
     public ServletLogin(){

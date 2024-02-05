@@ -16,24 +16,57 @@ public class DaoUsuarioRepository {
         connection = SingleConnection.getConnection();
     }
 
-    public void registrarUsuario(ModelLogin modelLogin) throws SQLException {
+    public ModelLogin registrarUsuario(ModelLogin modelLogin) throws SQLException {
 
-            String sql = "insert into model_login ( login, senha, nome, email) values (?,?,?,?);";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, modelLogin.getLogin());
-            statement.setString(2,modelLogin.getSenha());
-            statement.setString(3,modelLogin.getNome());
-            statement.setString(4,modelLogin.getEmail());
-            statement.execute();
-            connection.commit();
+            if (modelLogin.isNovo()){
+                String sql = "insert into model_login ( login, senha, nome, email) values (?,?,?,?);";
+                PreparedStatement statement = connection.prepareStatement(sql);
+                statement.setString(1, modelLogin.getLogin());
+                statement.setString(2,modelLogin.getSenha());
+                statement.setString(3,modelLogin.getNome());
+                statement.setString(4,modelLogin.getEmail());
+                statement.execute();
+                connection.commit();
+            }
+            else {
+                String sql = "update model_login set login=?, senha=?,nome=?,email=? where id = "+modelLogin.getId()+";";
+                PreparedStatement statement = connection.prepareStatement(sql);
+                statement.setString(1, modelLogin.getLogin());
+                statement.setString(2, modelLogin.getSenha());
+                statement.setString(3, modelLogin.getNome());
+                statement.setString(4,modelLogin.getEmail());
+                statement.executeUpdate();
+                connection.commit();
+            }
+
+
+            return this.consultaUsuario(modelLogin.getLogin());
 
     }
 
-    public ModelLogin consultaUsuario(ModelLogin modelLogin) throws SQLException{
-        String sql = "select * from model_login where upper(login) = upper(?)";
+    public ModelLogin consultaUsuario(String login) throws SQLException{
+
+        ModelLogin modelLogin = new ModelLogin();
+        String sql = "select * from model_login where upper(login) = upper('"+login+"');";
         PreparedStatement preparaSql = connection.prepareStatement(sql);
-        preparaSql.setString(1,modelLogin.getLogin());
         ResultSet resultSet = preparaSql.executeQuery();
+
+        while (resultSet.next()){
+            modelLogin.setId(resultSet.getLong("id"));
+            modelLogin.setNome(resultSet.getString("nome"));
+            modelLogin.setEmail(resultSet.getString("email"));
+            modelLogin.setLogin(resultSet.getString("login"));
+            modelLogin.setSenha(resultSet.getString("senha"));
+        }
+
+        return modelLogin;
     }
 
+    public boolean validaUsuario(String login) throws Exception{
+        String sql = "select count(1) >0 as existe from model_login where upper(login) = upper('"+login+"')";
+        PreparedStatement preparaSql = connection.prepareStatement(sql);
+        ResultSet resultSet = preparaSql.executeQuery();
+        resultSet.next();
+        return resultSet.getBoolean("existe");
+    }
 }

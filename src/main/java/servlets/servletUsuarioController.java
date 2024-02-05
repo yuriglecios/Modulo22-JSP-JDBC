@@ -29,6 +29,7 @@ public class servletUsuarioController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         try {
+            var msg = "Cadastro realizado!";
             //id, nome, email, login, senha
             String id = req.getParameter("id");
             String nome = req.getParameter("nome");
@@ -43,9 +44,14 @@ public class servletUsuarioController extends HttpServlet {
             modelLogin.setLogin(login);
             modelLogin.setSenha(senha);
 
-            daoUsuarioRepository.registrarUsuario(modelLogin);
+            if (daoUsuarioRepository.validaUsuario(modelLogin.getLogin()) && modelLogin.getId() == null){
+                msg = "Cadastro já existe no banco de dados";
+            }
+            else {
+                modelLogin = daoUsuarioRepository.registrarUsuario(modelLogin);
+            }
 
-            req.setAttribute("msg", "Cadastro realizado!");
+            req.setAttribute("msg", msg);
             req.setAttribute("modelLogin", modelLogin); // para manter os dados em tela
             req.getRequestDispatcher("principal/cadastroUsuario.jsp").forward(req,resp);
 
