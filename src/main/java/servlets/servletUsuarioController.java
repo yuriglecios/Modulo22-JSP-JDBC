@@ -1,5 +1,6 @@
 package servlets;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import dao.DaoUsuarioRepository;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -10,6 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.ModelLogin;
 
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(urlPatterns = "/servletUsuarioController")
 public class servletUsuarioController extends HttpServlet {
@@ -22,7 +24,47 @@ public class servletUsuarioController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+
+        try {
+
+            var acao = req.getParameter("acao");
+            if (acao.equalsIgnoreCase("deletar")){
+
+                var idUsuario = req.getParameter("id");
+                daoUsuarioRepository.deletarUsuario(idUsuario);
+                req.setAttribute("msg", "Excluido com sucesso!");
+                req.getRequestDispatcher("principal/cadastroUsuario.jsp").forward(req,resp);
+
+            }
+            else if (acao.equalsIgnoreCase("deletarAjax")) {
+
+                var idUsuario = req.getParameter("id");
+                daoUsuarioRepository.deletarUsuario(idUsuario);
+                resp.getWriter().write("Deletado com sucesso!");
+
+            }
+            else if (acao.equalsIgnoreCase("buscaUsuarioAjax")) {
+                var nomeUsuario = req.getParameter("nomeUsuario");
+                List<ModelLogin> dadosUsuarioJson = daoUsuarioRepository.buscarUsuarioByNome(nomeUsuario);
+                ObjectMapper mapper = new ObjectMapper();
+                String json = mapper.writeValueAsString(dadosUsuarioJson);
+                resp.getWriter().write(json);
+            }
+            else if (acao.equalsIgnoreCase("buscarEditar")){
+                var id = req.getParameter("id");
+                ModelLogin modelLogin = daoUsuarioRepository.buscarUsuarioById(id);
+            }
+            else {
+                req.getRequestDispatcher("principal/cadastroUsuario.jsp").forward(req,resp);
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            RequestDispatcher dispatcher = req.getRequestDispatcher("erro.jsp");
+            req.setAttribute("msg",e.getMessage());
+            dispatcher.forward(req,resp);
+        }
     }
 
     @Override

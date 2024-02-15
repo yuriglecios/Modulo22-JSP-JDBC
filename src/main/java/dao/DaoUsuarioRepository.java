@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DaoUsuarioRepository {
 
@@ -68,5 +70,49 @@ public class DaoUsuarioRepository {
         ResultSet resultSet = preparaSql.executeQuery();
         resultSet.next();
         return resultSet.getBoolean("existe");
+    }
+
+    public void deletarUsuario(String id) throws Exception{
+        var sql = "delete from model_login where id = ? ";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setLong(1, Long.parseLong(id));
+        statement.executeUpdate();
+        connection.commit();
+    }
+
+    public List<ModelLogin> buscarUsuarioByNome(String nomeUsuario) throws Exception {
+
+        List<ModelLogin> listaUsuario = new ArrayList<>();
+        var sql = "select * from model_login where upper(nome) like upper(?)";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setString(1, "%"+nomeUsuario+"%");
+        ResultSet resultado = statement.executeQuery();
+        while (resultado.next()){
+            ModelLogin modelLogin = new ModelLogin();
+            modelLogin.setId(resultado.getLong("id"));
+            modelLogin.setEmail(resultado.getString("email"));
+            modelLogin.setNome(resultado.getString("nome"));
+            modelLogin.setLogin(resultado.getString("login"));
+            listaUsuario.add(modelLogin);
+        }
+
+        return listaUsuario;
+    }
+
+    public ModelLogin buscarUsuarioById(String id) throws Exception {
+
+        ModelLogin modelLogin = new ModelLogin();
+        var sql = "select * from model_login where id = ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setLong(1, Long.parseLong(id));
+        ResultSet resultado = statement.executeQuery();
+        while (resultado.next()){
+            modelLogin.setId(resultado.getLong("id"));
+            modelLogin.setEmail(resultado.getString("email"));
+            modelLogin.setNome(resultado.getString("nome"));
+            modelLogin.setLogin(resultado.getString("login"));
+        }
+
+        return modelLogin;
     }
 }
