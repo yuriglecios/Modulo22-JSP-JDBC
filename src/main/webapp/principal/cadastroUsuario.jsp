@@ -7,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -119,7 +120,7 @@
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Exemplo: Maria" aria-label="pesquisaNome" id="nomeBusca" aria-describedby="basic-addon2">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-success" type="button" onclick="buscarUsuario()">Button</button>
+                        <button class="btn btn-outline-success" type="button" onclick="buscarUsuario()">Pesquisar</button>
                     </div>
                 </div>
 
@@ -214,8 +215,8 @@
     }
 
     function verEditar(id){
-        let url = document.getElementById('formUser').action;
-        window.location.href = url + '?acao=buscarEditar'
+        let urlAction = document.getElementById('formUser').action;
+        window.location.href = urlAction + '?acao=buscarEditar&id=' + id;
     }
 
 </script>

@@ -93,6 +93,7 @@ public class DaoUsuarioRepository {
             modelLogin.setEmail(resultado.getString("email"));
             modelLogin.setNome(resultado.getString("nome"));
             modelLogin.setLogin(resultado.getString("login"));
+            modelLogin.setSenha(resultado.getString("senha"));
             listaUsuario.add(modelLogin);
         }
 

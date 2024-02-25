@@ -53,6 +53,9 @@ public class servletUsuarioController extends HttpServlet {
             else if (acao.equalsIgnoreCase("buscarEditar")){
                 var id = req.getParameter("id");
                 ModelLogin modelLogin = daoUsuarioRepository.buscarUsuarioById(id);
+                req.setAttribute("msg", "Usuário para editar");
+                req.setAttribute("modelLogin", modelLogin); // para manter os dados em tela
+                req.getRequestDispatcher("principal/cadastroUsuario.jsp").forward(req,resp);
             }
             else {
                 req.getRequestDispatcher("principal/cadastroUsuario.jsp").forward(req,resp);

@@ -1,0 +1,12 @@
+
+€
+java:S1192$"^Define a constant instead of duplicating this literal "principal/cadastroUsuario.jsp" 4 times.(øÚ‚Şùÿÿÿÿ8Úæ€‰Ş1
+i	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ªöãç8Ûæ€‰Ş1
+
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(µˆæ€8¤ç€‰Ş1
+X
+java:S1948"6Make "daoUsuarioRepository" transient or serializable.(€á–‹ùÿÿÿÿ8¥ç€‰Ş1
+~
+java:S1989E"aHandle the following exceptions that could be thrown by "forward": ServletException, IOException.(òø½8Áç€‰Ş1
+~
+java:S1989k"aHandle the following exceptions that could be thrown by "forward": ServletException, IOException.(òø½8Åç€‰Ş1
