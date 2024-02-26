@@ -100,6 +100,23 @@ public class DaoUsuarioRepository {
         return listaUsuario;
     }
 
+    public List<ModelLogin> buscarTodosUsuarios() throws SQLException {
+        List<ModelLogin> listaDeUsuarios = new ArrayList<>();
+        var sql = "select * from model_login;";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        ResultSet resultSet = statement.executeQuery();
+        while (resultSet.next()){
+            ModelLogin modelLogin = new ModelLogin();
+            modelLogin.setId(resultSet.getLong("id"));
+            modelLogin.setEmail(resultSet.getString("email"));
+            modelLogin.setNome(resultSet.getString("nome"));
+            modelLogin.setLogin(resultSet.getString("login"));
+            modelLogin.setSenha(resultSet.getString("senha"));
+            listaDeUsuarios.add(modelLogin);
+        }
+        return listaDeUsuarios;
+    }
+
     public ModelLogin buscarUsuarioById(String id) throws Exception {
 
         ModelLogin modelLogin = new ModelLogin();

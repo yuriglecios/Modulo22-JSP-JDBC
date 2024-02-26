@@ -87,6 +87,30 @@
                                                                     </button>
                                                                 </form>
                                                                 <span id="msg">${msg}</span>
+                                                                <div style="height: 200px; overflow: scroll">
+                                                                    <table class="table table-dark" id="listaDeUsuarios">
+                                                                        <thead>
+                                                                        <tr>
+                                                                            <th scope="col">ID</th>
+                                                                            <th scope="col">Nome</th>
+                                                                            <th scope="col">Login</th>
+                                                                            <th scope="col">Senha</th>
+                                                                            <th scope="col">Ver</th>
+                                                                        </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <c:forEach items="${modelLogins}" var="logins">
+                                                                                <tr>
+                                                                                <td><c:out value="${logins.id}"></c:out></td>
+                                                                                <td><c:out value="${logins.nome}"></c:out></td>
+                                                                                <td><c:out value="${logins.login}"></c:out></td>
+                                                                                <td><c:out value="${logins.senha}"></c:out></td>
+                                                                                <td><a class="btn btn-secondary" href="<%= request.getContextPath() %>/servletUsuarioController?acao=buscarEditar&id=${logins.id}">Ver</a></td>
+                                                                                </tr>
+                                                                            </c:forEach>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>

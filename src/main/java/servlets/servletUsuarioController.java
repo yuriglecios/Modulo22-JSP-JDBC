@@ -13,7 +13,7 @@ import model.ModelLogin;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(urlPatterns = "/servletUsuarioController")
+@WebServlet(urlPatterns = {"/servletUsuarioController"})
 public class servletUsuarioController extends HttpServlet {
     private static final long serialVersionUID = 4914146356979458301L;
 
@@ -44,21 +44,34 @@ public class servletUsuarioController extends HttpServlet {
 
             }
             else if (acao.equalsIgnoreCase("buscaUsuarioAjax")) {
+
                 var nomeUsuario = req.getParameter("nomeUsuario");
                 List<ModelLogin> dadosUsuarioJson = daoUsuarioRepository.buscarUsuarioByNome(nomeUsuario);
                 ObjectMapper mapper = new ObjectMapper();
                 String json = mapper.writeValueAsString(dadosUsuarioJson);
                 resp.getWriter().write(json);
+
             }
             else if (acao.equalsIgnoreCase("buscarEditar")){
+
                 var id = req.getParameter("id");
                 ModelLogin modelLogin = daoUsuarioRepository.buscarUsuarioById(id);
                 req.setAttribute("msg", "Usuário para editar");
                 req.setAttribute("modelLogin", modelLogin); // para manter os dados em tela
                 req.getRequestDispatcher("principal/cadastroUsuario.jsp").forward(req,resp);
+
+            }
+            else if (acao.equalsIgnoreCase("listarUser")) {
+                List<ModelLogin> listaUsuario = daoUsuarioRepository.buscarTodosUsuarios();
+                req.setAttribute("msg", "Usuários");
+                req.setAttribute("modelLogins", listaUsuario); // para manter os dados em tela
+                req.getRequestDispatcher("principal/cadastroUsuario.jsp").forward(req,resp);
+
             }
             else {
+
                 req.getRequestDispatcher("principal/cadastroUsuario.jsp").forward(req,resp);
+
             }
 
 
