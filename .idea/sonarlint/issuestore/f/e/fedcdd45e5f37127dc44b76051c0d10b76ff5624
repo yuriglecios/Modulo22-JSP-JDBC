@@ -1,0 +1,10 @@
+
+S
+java:S1948"6Make "daoUsuarioRepository" transient or serializable.(”±­æ8¹çô»ã1
+V
+java:S1128"9Remove this unused import 'connections.SingleConnection'.(¬˜î8¼çô»ã1
+M
+java:S1128
+"0Remove this unused import 'java.sql.Connection'.(¥ËôÖ8¼çô»ã1
+u
+java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(”±­æ8¥öí»ã1

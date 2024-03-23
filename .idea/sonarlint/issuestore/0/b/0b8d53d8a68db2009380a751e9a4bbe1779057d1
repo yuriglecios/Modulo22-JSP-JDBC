@@ -1,27 +1,27 @@
 
-g	java:S112C"FDefine and throw a dedicated exception instead of using a generic one.(ğ¯ãşÿÿÿÿ8šÉ‚”Ş1
-b	java:S112K"FDefine and throw a dedicated exception instead of using a generic one.(Ûëéñ8œÉ‚”Ş1
-b	java:S112S"FDefine and throw a dedicated exception instead of using a generic one.(¹‹Ãš8œÉ‚”Ş1
-b	java:S112x"FDefine and throw a dedicated exception instead of using a generic one.(‚¢ßÖ8œÉ‚”Ş1
+g	java:S112D"FDefine and throw a dedicated exception instead of using a generic one.(ğ¯ãşÿÿÿÿ8ùÿ¾»ã1
+b	java:S112L"FDefine and throw a dedicated exception instead of using a generic one.(Ûëéñ8ùÿ¾»ã1
+b	java:S112T"FDefine and throw a dedicated exception instead of using a generic one.(¹‹Ãš8úÿ¾»ã1
+b	java:S112y"FDefine and throw a dedicated exception instead of using a generic one.(‚¢ßÖ8úÿ¾»ã1
 h
-java:S1192="FDefine a constant instead of duplicating this literal "senha" 3 times.(ÕòíĞıÿÿÿÿ8œÉ‚”Ş1
+java:S1192="FDefine a constant instead of duplicating this literal "login" 4 times.(ğ­ëÔıÿÿÿÿ8ûÿ¾»ã1
 h
-java:S1192<"FDefine a constant instead of duplicating this literal "login" 4 times.(ğ­ëÔıÿÿÿÿ8É‚”Ş1
+java:S1192>"FDefine a constant instead of duplicating this literal "senha" 3 times.(ÕòíĞıÿÿÿÿ8ûÿ¾»ã1
 h
-java:S1192;"FDefine a constant instead of duplicating this literal "email" 4 times.(È‹Šÿÿÿÿÿ8É‚”Ş1
+java:S1192<"FDefine a constant instead of duplicating this literal "email" 4 times.(È‹Šÿÿÿÿÿ8üÿ¾»ã1
 q
-java:S2095E"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(§½âüÿÿÿÿ8²É‚”Ş1
+java:S20956"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(§½âüÿÿÿÿ8¼€¿»ã1
 q
-java:S2095j"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ƒ»ÊŞûÿÿÿÿ8±É‚”Ş1
+java:S2095$"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ƒ»ÊŞûÿÿÿÿ8¼€¿»ã1
 q
-java:S20955"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(§½âüÿÿÿÿ8±É‚”Ş1
+java:S2095N"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ƒ»ÊŞûÿÿÿÿ8»–Á»ã1
 q
-java:S2095M"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ƒ»ÊŞûÿÿÿÿ8±É‚”Ş1
+java:S2095F"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(§½âüÿÿÿÿ8¼€¿»ã1
 q
-java:S2095W"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ƒ»ÊŞûÿÿÿÿ8±É‚”Ş1
+java:S2095k"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ƒ»ÊŞûÿÿÿÿ8¼€¿»ã1
 q
-java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ƒ»ÊŞûÿÿÿÿ8±É‚”Ş1
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ƒ»ÊŞûÿÿÿÿ8¼€¿»ã1
 q
-java:S2095|"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ƒ»ÊŞûÿÿÿÿ8±É‚”Ş1
+java:S2095X"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ƒ»ÊŞûÿÿÿÿ8¼€¿»ã1
 q
-java:S2095#"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ƒ»ÊŞûÿÿÿÿ8²É‚”Ş1
+java:S2095}"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ƒ»ÊŞûÿÿÿÿ8»–Á»ã1

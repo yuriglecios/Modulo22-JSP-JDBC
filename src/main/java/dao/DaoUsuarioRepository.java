@@ -18,15 +18,16 @@ public class DaoUsuarioRepository {
         connection = SingleConnection.getConnection();
     }
 
-    public ModelLogin registrarUsuario(ModelLogin modelLogin) throws SQLException {
+    public ModelLogin registrarUsuario(ModelLogin modelLogin, Long idUsuarioLogado) throws SQLException {
 
             if (modelLogin.isNovo()){
-                String sql = "insert into model_login ( login, senha, nome, email) values (?,?,?,?);";
+                String sql = "insert into model_login ( login, senha, nome, email, usuario_id) values (?,?,?,?, ?);";
                 PreparedStatement statement = connection.prepareStatement(sql);
                 statement.setString(1, modelLogin.getLogin());
                 statement.setString(2,modelLogin.getSenha());
                 statement.setString(3,modelLogin.getNome());
                 statement.setString(4,modelLogin.getEmail());
+                statement.setLong(5,idUsuarioLogado);
                 statement.execute();
                 connection.commit();
             }

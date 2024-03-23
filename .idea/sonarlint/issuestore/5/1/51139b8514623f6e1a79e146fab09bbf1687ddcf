@@ -1,12 +1,14 @@
 
 €
-java:S1192$"^Define a constant instead of duplicating this literal "principal/cadastroUsuario.jsp" 5 times.(øÚ‚Şùÿÿÿÿ8•ğŠ”Ş1
-i	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ªöãç8•ğŠ”Ş1
+java:S1192$"^Define a constant instead of duplicating this literal "principal/cadastroUsuario.jsp" 5 times.(øÚ‚Şùÿÿÿÿ8”œô»ã1
+n	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ıçÖøÿÿÿÿ8•œô»ã1
 
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(µˆæ€8³ğŠ”Ş1
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(µˆæ€8˜œô»ã1
 X
-java:S1948"6Make "daoUsuarioRepository" transient or serializable.(€á–‹ùÿÿÿÿ8³ğŠ”Ş1
+java:S1948"6Make "daoUsuarioRepository" transient or serializable.(€á–‹ùÿÿÿÿ8‘¡ö»ã1
 ~
-java:S1989R"aHandle the following exceptions that could be thrown by "forward": ServletException, IOException.(òø½8ÅğŠ”Ş1
+java:S1989R"aHandle the following exceptions that could be thrown by "forward": ServletException, IOException.(òø½8©¡ö»ã1
 ~
-java:S1989x"aHandle the following exceptions that could be thrown by "forward": ServletException, IOException.(òø½8ÇğŠ”Ş1
+java:S1989x"aHandle the following exceptions that could be thrown by "forward": ServletException, IOException.(òø½8°¡ö»ã1
+_
+java:S1128"=Remove this unused import 'jakarta.servlet.http.HttpServlet'.(‘²şäıÿÿÿÿ8±¡ö»ã1

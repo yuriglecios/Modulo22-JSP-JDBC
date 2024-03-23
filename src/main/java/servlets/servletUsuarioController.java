@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(urlPatterns = {"/servletUsuarioController"})
-public class servletUsuarioController extends HttpServlet {
+public class servletUsuarioController extends ServletGenericUtil {
     private static final long serialVersionUID = 4914146356979458301L;
 
     private final DaoUsuarioRepository daoUsuarioRepository = new DaoUsuarioRepository();
@@ -106,7 +106,7 @@ public class servletUsuarioController extends HttpServlet {
                 msg = "Cadastro já existe no banco de dados";
             }
             else {
-                modelLogin = daoUsuarioRepository.registrarUsuario(modelLogin);
+                modelLogin = daoUsuarioRepository.registrarUsuario(modelLogin, super.getUsuarioLogado(req) );
             }
 
             req.setAttribute("msg", msg);
